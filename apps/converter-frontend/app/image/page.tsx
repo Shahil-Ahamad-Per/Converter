@@ -45,27 +45,32 @@ export default function ImagePage() {
     setIsProcessing(true);
     setResultUrl(null);
 
-    const formData = new FormData();
-    files.forEach((file) => formData.append("files", file));
-
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
-      const response = await fetch(
-        `${apiUrl}/image/merge?direction=${mergeDirection}`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const options = {
+        quality: 80,
+      };
 
-      if (!response.ok) throw new Error("Failed to merge");
+      const formData = new FormData();
+      files.forEach((file) => formData.append("files", file));
+      formData.append("conversionType", `merge-images-${mergeDirection}`);
+      formData.append("options", JSON.stringify(options));
+
+      const response = await fetch("/api/convert", {
+        method: "POST",
+        body: formData,
+      });
+
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Failed to merge");
+      }
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);
       setResultUrl(url);
     } catch (error) {
       console.error(error);
-      alert("Error merging images");
+      alert(error instanceof Error ? error.message : "Error merging images");
     } finally {
       setIsProcessing(false);
     }
@@ -76,20 +81,25 @@ export default function ImagePage() {
     setIsProcessing(true);
     setResultUrl(null);
 
+    const options = {
+      quality: 80,
+    };
+
     const formData = new FormData();
-    formData.append("file", files[0]); // Only take first file for now
+    formData.append("files", files[0]); // Only take first file for now
+    formData.append("conversionType", convertFormat);
+    formData.append("options", JSON.stringify(options));
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
-      const response = await fetch(
-        `${apiUrl}/image/convert?format=${convertFormat}`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
+      const response = await fetch("/api/convert", {
+        method: "POST",
+        body: formData,
+      });
 
-      if (!response.ok) throw new Error("Failed to convert");
+      if (!response.ok) {
+        const data = await response.json();
+        throw new Error(data.error || "Failed to convert");
+      }
 
       const blob = await response.blob();
       const url = window.URL.createObjectURL(blob);

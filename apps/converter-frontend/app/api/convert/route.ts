@@ -12,7 +12,9 @@ export async function POST(request: NextRequest) {
     const optionsStr = formData.get("options") as string;
 
     // Validation
+    console.log(`Processing conversion request for type: ${conversionType}`);
     if (!files || files.length === 0) {
+      console.error("No files provided");
       return NextResponse.json({ error: "No files provided" }, { status: 400 });
     }
 
@@ -90,12 +92,15 @@ export async function POST(request: NextRequest) {
           const inputFormat = getFileExtension(files[0].name);
           resultBuffer = await convertToPDF(buffers[0], inputFormat);
         } catch (e) {
+          const errorMessage = e instanceof Error ? e.message : "Unknown error";
+          // If it's explicitly an external service error, return 501, otherwise 400
+          const status = errorMessage.includes("external service") ? 501 : 400;
+
           return NextResponse.json(
             {
-              error:
-                "Converting to PDF requires external service. Please setup LibreOffice or cloud API.",
+              error: errorMessage,
             },
-            { status: 501 }
+            { status }
           );
         }
       }
@@ -122,7 +127,7 @@ export async function POST(request: NextRequest) {
       },
     });
   } catch (error) {
-    console.error("Conversion error:", error);
+    console.error("Conversion error details:", error);
     return NextResponse.json(
       {
         error: `Conversion failed: ${error instanceof Error ? error.message : "Unknown error"}`,

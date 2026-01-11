@@ -1,4 +1,5 @@
 import { PDFDocument } from "pdf-lib";
+import sharp from "sharp";
 
 export async function mergePDFs(buffers: Buffer[]): Promise<Buffer> {
   if (buffers.length === 0) {
@@ -42,25 +43,6 @@ export async function isPDF(buffer: Buffer): Promise<boolean> {
   return header === "%PDF";
 }
 
-export async function convertToPDF(
-  buffer: Buffer,
-  inputFormat: string
-): Promise<Buffer> {
-  // Check if it's an image format we can handle
-  if (["png", "jpg", "jpeg"].includes(inputFormat.toLowerCase())) {
-    return convertImageToPDF(buffer, inputFormat);
-  }
-
-  // This is a simplified example - in production use a proper conversion service
-  if (inputFormat === "pdf") {
-    return buffer;
-  }
-
-  throw new Error(
-    `Converting ${inputFormat} to PDF requires external service (LibreOffice, CloudConvert, etc.). Please configure in API route.`
-  );
-}
-
 export async function convertImageToPDF(
   imageBuffer: Buffer,
   imageFormat: string
@@ -69,14 +51,26 @@ export async function convertImageToPDF(
   let image;
 
   try {
-    if (imageFormat.toLowerCase() === "png") {
+    const format = imageFormat.toLowerCase();
+
+    if (format === "png") {
       image = await pdfDoc.embedPng(imageBuffer);
-    } else if (["jpg", "jpeg"].includes(imageFormat.toLowerCase())) {
+    } else if (["jpg", "jpeg"].includes(format)) {
       image = await pdfDoc.embedJpg(imageBuffer);
     } else {
-      throw new Error(
-        `Unsupported image format for PDF conversion: ${imageFormat}`
-      );
+      // Try to convert to PNG first using sharp (for WebP, etc.)
+      try {
+        const pngBuffer = await sharp(imageBuffer).png().toBuffer();
+        image = await pdfDoc.embedPng(pngBuffer);
+      } catch (conversionError) {
+        console.error(
+          "Failed to convert image to PNG for PDF embedding:",
+          conversionError
+        );
+        throw new Error(
+          `Unsupported image format for PDF conversion: ${imageFormat}`
+        );
+      }
     }
 
     const page = pdfDoc.addPage([image.width, image.height]);
@@ -97,11 +91,33 @@ export async function convertImageToPDF(
   }
 }
 
+export async function convertToPDF(
+  buffer: Buffer,
+  inputFormat: string
+): Promise<Buffer> {
+  // Check if it's an image format we can handle
+  // Added webp/svg to list of checked formats since convertImageToPDF now handles them via sharp
+  if (
+    ["png", "jpg", "jpeg", "webp", "svg"].includes(inputFormat.toLowerCase())
+  ) {
+    return convertImageToPDF(buffer, inputFormat);
+  }
+
+  // This is a simplified example - in production use a proper conversion service
+  if (inputFormat === "pdf") {
+    return buffer;
+  }
+
+  throw new Error(
+    `Converting ${inputFormat} to PDF requires external service (LibreOffice, CloudConvert, etc.). Please configure in API route.`
+  );
+}
+
 export async function convertFromPDF(
   buffer: Buffer,
   outputFormat: string
 ): Promise<Buffer> {
-  if (!isPDF(buffer)) {
+  if (!(await isPDF(buffer))) {
     throw new Error("Input buffer is not a valid PDF");
   }
 
