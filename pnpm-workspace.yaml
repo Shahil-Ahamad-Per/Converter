@@ -1,0 +1,9 @@
+packages:
+  - apps/*
+  - libs/*
+
+onlyBuiltDependencies:
+  - '@nestjs/core'
+  - nx
+  - sharp
+  - unrs-resolver

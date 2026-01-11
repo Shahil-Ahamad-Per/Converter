@@ -1,0 +1,13 @@
+{
+    "name": "@converter/frontend-lib",
+    "version": "0.0.1",
+    "private": true,
+    "main": "src/index.ts",
+    "types": "src/index.ts",
+    "dependencies": {
+        "react": "^19.0.0",
+        "lucide-react": "^0.454.0",
+        "clsx": "^2.1.1",
+        "tailwind-merge": "^3.3.1"
+    }
+}

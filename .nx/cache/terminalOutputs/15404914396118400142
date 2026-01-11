@@ -1,0 +1,55 @@
+[2m> [22mnpx next build
+
+npm warn Unknown env config "verify-deps-before-run". This will stop working in the next major version of npm.
+   [1m[38;2;173;127;168m▲ Next.js 15.1.4[39m[22m
+
+ [37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+app/layout.tsx
+An error occurred in `next/font`.
+
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/index.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack-config.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack-build/impl.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1421:15)
+    at /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/require-hook.js:55:36
+    at require.resolve (node:internal/modules/helpers:163:19)
+    at loadPlugin (/home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:49:32)
+    at /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:157:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:157:47)
+    at async /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/index.js:124:36
+
+app/layout.tsx
+An error occurred in `next/font`.
+
+Error: Cannot find module '@tailwindcss/postcss'
+Require stack:
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/index.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/index.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack-config.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack-build/impl.js
+- /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/compiled/jest-worker/processChild.js
+    at Module.<anonymous> (node:internal/modules/cjs/loader:1421:15)
+    at /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/server/require-hook.js:55:36
+    at require.resolve (node:internal/modules/helpers:163:19)
+    at loadPlugin (/home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:49:32)
+    at /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:157:56
+    at Array.map (<anonymous>)
+    at getPostCssPlugins (/home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/plugins.js:157:47)
+    at async /home/shahil/Personal/Converter/node_modules/.pnpm/next@15.1.4_react-dom@19.2.0_react@19.2.0__react@19.2.0/node_modules/next/dist/build/webpack/config/blocks/css/index.js:124:36
+
+./app/layout.tsx
+[31m[1mModule not found[22m[39m: Can't resolve '[32m@vercel/analytics/next[39m'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors

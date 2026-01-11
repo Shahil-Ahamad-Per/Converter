@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: converter-backend
+    env: docker
+    dockerContext: .
+    dockerfilePath: ./apps/converter-backend/Dockerfile
+    envVars:
+      - key: PORT
+        value: 3001

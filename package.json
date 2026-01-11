@@ -1,0 +1,29 @@
+{
+    "name": "converter-monorepo",
+    "version": "1.0.0",
+    "license": "MIT",
+    "type": "commonjs",
+    "scripts": {
+        "build": "nx run-many -t build",
+        "dev": "nx run-many -t dev",
+        "lint": "nx run-many -t lint",
+        "test": "nx run-many -t test",
+        "build:frontend": "nx run converter-frontend:build",
+        "build:backend": "nx run converter-backend:build",
+        "dev:frontend": "nx run converter-frontend:dev",
+        "dev:backend": "nx run converter-backend:serve"
+    },
+    "private": true,
+    "devDependencies": {
+        "nx": "19.0.0",
+        "prettier": "^3.0.0",
+        "typescript": "^5.0.0"
+    },
+    "workspaces": [
+        "apps/*",
+        "libs/*"
+    ],
+    "dependencies": {
+        "tslib": "^2.8.1"
+    }
+}

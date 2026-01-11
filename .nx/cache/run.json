@@ -1,0 +1,21 @@
+{
+  "run": {
+    "command": "nx run converter-frontend:dev",
+    "startTime": "2026-01-11T09:54:02.834Z",
+    "endTime": "2026-01-11T09:54:38.270Z",
+    "inner": false
+  },
+  "tasks": [
+    {
+      "taskId": "converter-frontend:dev",
+      "target": "dev",
+      "projectName": "converter-frontend",
+      "hash": "140830766340806295",
+      "startTime": "2026-01-11T09:54:02.845Z",
+      "endTime": "2026-01-11T09:54:38.270Z",
+      "params": "",
+      "cacheStatus": "cache-miss",
+      "status": 0
+    }
+  ]
+}

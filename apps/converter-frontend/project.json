@@ -1,0 +1,36 @@
+{
+    "name": "converter-frontend",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/converter-frontend",
+    "targets": {
+        "build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx next build",
+                "cwd": "apps/converter-frontend"
+            }
+        },
+        "dev": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx next dev",
+                "cwd": "apps/converter-frontend"
+            }
+        },
+        "lint": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx next lint",
+                "cwd": "apps/converter-frontend"
+            }
+        },
+        "start": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "npx next start",
+                "cwd": "apps/converter-frontend"
+            }
+        }
+    }
+}

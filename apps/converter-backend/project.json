@@ -1,0 +1,29 @@
+{
+    "name": "converter-backend",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "projectType": "application",
+    "sourceRoot": "apps/converter-backend/src",
+    "targets": {
+        "build": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "pnpm exec nest build",
+                "cwd": "apps/converter-backend"
+            }
+        },
+        "serve": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "pnpm exec nest start --watch",
+                "cwd": "apps/converter-backend"
+            }
+        },
+        "test": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "pnpm exec jest",
+                "cwd": "apps/converter-backend"
+            }
+        }
+    }
+}

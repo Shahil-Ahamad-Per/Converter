@@ -1,0 +1,63 @@
+[2m> [22mnpx next dev
+
+[1mnpm[22m [33mwarn[39m [94mUnknown env config "node-linker". This will stop working in the next major version of npm.[39m
+[1mnpm[22m [33mwarn[39m [94mUnknown env config "verify-deps-before-run". This will stop working in the next major version of npm.[39m
+[1mnpm[22m [33mwarn[39m [94mUnknown env config "npm-globalconfig". This will stop working in the next major version of npm.[39m
+[1mnpm[22m [33mwarn[39m [94mUnknown env config "_jsr-registry". This will stop working in the next major version of npm.[39m
+[1mnpm[22m [33mwarn[39m [94mUnknown project config "node-linker". This will stop working in the next major version of npm.[39m
+   [1m[38;2;173;127;168m▲ Next.js 15.1.4[39m[22m
+   - Local:        http://localhost:3003
+   - Network:      http://192.168.1.70:3003
+   - Environments: .env
+
+ [32m[1m✓[22m[39m Starting...
+ [32m[1m✓[22m[39m Ready in 1839ms
+ [37m[1m○[22m[39m Compiling / ...
+ [31m[1m⨯[22m[39m ./app/layout.tsx:4:1
+[31m[1mModule not found[22m[39m: Can't resolve '[32m@vercel/analytics/next[39m'
+[0m [90m 2 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m"next"[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { [33mGeist[39m[33m,[39m [33mGeist_Mono[39m } [36mfrom[39m [32m"next/font/google"[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mAnalytics[39m } [36mfrom[39m [32m"@vercel/analytics/next"[39m[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 5 |[39m [36mimport[39m [32m"./globals.css"[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m [36mconst[39m _geist [33m=[39m [33mGeist[39m({ subsets[33m:[39m [[32m"latin"[39m] })[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ [31m[1m⨯[22m[39m ./app/layout.tsx:4:1
+[31m[1mModule not found[22m[39m: Can't resolve '[32m@vercel/analytics/next[39m'
+[0m [90m 2 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m"next"[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { [33mGeist[39m[33m,[39m [33mGeist_Mono[39m } [36mfrom[39m [32m"next/font/google"[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mAnalytics[39m } [36mfrom[39m [32m"@vercel/analytics/next"[39m[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 5 |[39m [36mimport[39m [32m"./globals.css"[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m [36mconst[39m _geist [33m=[39m [33mGeist[39m({ subsets[33m:[39m [[32m"latin"[39m] })[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ [31m[1m⨯[22m[39m ./app/layout.tsx:4:1
+[31m[1mModule not found[22m[39m: Can't resolve '[32m@vercel/analytics/next[39m'
+[0m [90m 2 |[39m [36mimport[39m type { [33mMetadata[39m } [36mfrom[39m [32m"next"[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { [33mGeist[39m[33m,[39m [33mGeist_Mono[39m } [36mfrom[39m [32m"next/font/google"[39m[0m
+[0m[31m[1m>[22m[39m[90m 4 |[39m [36mimport[39m { [33mAnalytics[39m } [36mfrom[39m [32m"@vercel/analytics/next"[39m[0m
+[0m [90m   |[39m [31m[1m^[22m[39m[0m
+[0m [90m 5 |[39m [36mimport[39m [32m"./globals.css"[39m[0m
+[0m [90m 6 |[39m[0m
+[0m [90m 7 |[39m [36mconst[39m _geist [33m=[39m [33mGeist[39m({ subsets[33m:[39m [[32m"latin"[39m] })[0m
+
+https://nextjs.org/docs/messages/module-not-found
+ GET / [31m500[39m in 3202ms
+ GET /worker.js [31m500[39m in 15ms
+ [32m[1m✓[22m[39m Compiled /_error in 449ms (863 modules)
+ GET / [32m200[39m in 333ms
+ GET /worker.js [33m404[39m in 20ms
+ [37m[1m○[22m[39m Compiling /pdf ...
+ [32m[1m✓[22m[39m Compiled /pdf in 1131ms (944 modules)
+ GET /pdf [32m200[39m in 1234ms
+ GET / [32m200[39m in 37ms
+ [37m[1m○[22m[39m Compiling /image ...
+ [32m[1m✓[22m[39m Compiled /image in 1151ms (1081 modules)
+ GET /image [32m200[39m in 1234ms
+ [32m[1m✓[22m[39m Compiled in 285ms (611 modules)
+ GET /image [32m200[39m in 25ms
+⠙[1G[0K
