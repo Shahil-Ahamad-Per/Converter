@@ -4,4 +4,5 @@ dist
 .env
 dist
 .next
-.nx/*
+.nx
+
